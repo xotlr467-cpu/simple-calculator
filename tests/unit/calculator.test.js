@@ -1,5 +1,5 @@
 // 단위 테스트: 함수 하나를 격리해서 테스트]
-import { add, subtract, calculate } from "../../src/calculator.js"; 
+import { add, subtract, multiply, calculate } from "../../src/calculator.js"; 
 
 describe("add", () => {
   test("두 양수를 더한다", () => {
@@ -19,7 +19,15 @@ describe("subtract", () => {
   });
 });
 
- 
+describe("multiply", () => {
+  test("두 수를 곱한다", () => {
+    expect(multiply(3, 4)).toBe(12);
+  });
+  test("0과의 곱은 0이다", () => {
+    expect(multiply(7, 0)).toBe(0);
+  });
+});
+
 describe("calculate", () => {
   test("연산자 문자열로 알맞은 함수를 호출한다", () => {
     expect(calculate("add", 1, 2)).toBe(3);
@@ -28,5 +36,6 @@ describe("calculate", () => {
     expect(() => calculate("modulo", 1, 2)).toThrow("알 수 없는 연산자");
   });
 });
+
 
 
